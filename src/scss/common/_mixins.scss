@@ -1,0 +1,58 @@
+@mixin flex($direction, $justify-content, $align-items, $wrap: nowrap){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $wrap;
+}
+
+@mixin box-shadow($horizontal, $vertical, $blur, $spread, $color){
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+  -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+  box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin border-radius($TL, $TR: $TL, $BR: $TL, $BL: $TL){
+  border-top-left-radius: $TL;
+  border-top-right-radius: $TR;
+  border-bottom-right-radius: $BR;
+  border-bottom-left-radius: $BL;
+}
+
+@mixin position-absolute($top, $right, $bottom, $left){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fix-full(){
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin no-select(){
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none;
+}
+
+
+@mixin animation-fade(){
+  animation: fade-in .3s ease-in-out;
+  animation-fill-mode: forwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

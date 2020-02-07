@@ -1,0 +1,14 @@
+.register-outer {
+  padding: 20px 10px;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+
+  .register-title {
+    text-align: center;
+    font-size: $font-xxl;
+    font-weight: bold;
+    color: $gray-6;
+    padding: 5px 12px;
+  }
+}

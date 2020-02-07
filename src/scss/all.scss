@@ -1,0 +1,15 @@
+@import './common/variables';
+@import './common/mixins';
+@import './common/commons';
+
+//common
+@import './components/navbar';
+
+//main
+@import './components/banner';
+@import './components/product';
+@import './components/product-modal';
+
+//profile
+@import './components/register';
+@import './components/profile';

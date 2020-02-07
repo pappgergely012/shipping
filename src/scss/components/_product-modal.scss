@@ -1,0 +1,70 @@
+.product-modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+
+  .product-modal-inner {
+    transform: scale(0);
+    transition: .3s;
+
+    .product-image{
+      width: 100%;
+      flex: 1;
+    }
+
+    .product-datas-container {
+      padding: 10px 20px;
+
+      .product-name{
+        color: $main-color;
+        font-weight: 600;
+        font-size: $font-xxl;
+      }
+
+      .product-description{
+        margin: 20px 0;
+        font-size: $font-xl;
+      }
+
+      .product-price {
+        margin: 20px 0;
+        font-size: $font-lg;
+        text-align: right;
+        color: $price-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.animate {
+    @include flex(row, center, center);
+    @include fix-full();
+    visibility: visible; 
+    opacity: 1;
+    z-index: 2;
+    transition: .3s;
+    
+    .product-modal-inner {
+      @include border-radius(12px);
+      @include flex(column, flex-start, flex-start, nowrap);
+      background-color: $white;
+      z-index: 2;
+      transform: scale(1);
+      width: 60%;
+      height: 70%;
+      transition: .3s;
+      position: relative;
+
+      .modal-close {
+        @include position-absolute(0, 0, auto,auto);
+        @include border-radius(0, 12px, 0, 5px);
+        background-color: $overlay-color;
+        font-size: $font-xxl;
+        color: $white;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 6px 20px;
+      }
+    }
+  }
+}

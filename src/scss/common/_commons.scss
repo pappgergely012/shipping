@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,,500,600,700&display=swap&subset=latin-ext');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $gray-f5;
+}
+
+a {
+  text-decoration: none;
+}
+
+.overlay {
+  @include fix-full();
+  background-color: $overlay-color;
+}

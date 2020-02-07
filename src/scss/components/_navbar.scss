@@ -1,0 +1,85 @@
+.navbar {
+  @include box-shadow(0, 0, 8px, 1px, $box-shadow);
+  padding: 5px 12px;
+  border-bottom: 1px solid $gray-f5;
+  margin-bottom: 10px;
+  background-color: $white;
+
+  .navbar-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+
+    .nav-top{
+      @include flex(row, center, center);
+      position: relative;
+      padding: 8px 0;
+
+      .navbar-logo {
+        color: $main-color;
+        font-weight: bold;
+        font-style: italic;
+        font-size: calc(#{$font-xxl} * 3/2);
+        cursor: pointer;
+      }
+
+      .login-button {
+        @include position-absolute(50%, 10px, auto, auto);
+        transform: translateY(-50%);
+        font-size: $font-xxl;
+        color: $gray-3;
+        padding: 12px;
+      }
+    }
+
+    .navbar-categories-outer {
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      margin: auto;
+
+      &:after {
+        content: '';
+        @include position-absolute(50%, 0, auto, auto);
+        transform: translateY(-50%);
+        background: linear-gradient(to right, transparent, $white 80%);
+        height: 100%;
+        width: 80px;
+        pointer-events: none;
+      }
+
+      &:before {
+        content: '';
+        @include position-absolute(50%, auto, auto, 0);
+        transform: translateY(-50%);
+        background: linear-gradient(to left, transparent, $white 80%);
+        height: 100%;
+        width: 80px;
+        pointer-events: none;
+      }
+
+      .navbar-categories {
+        @include flex(row, flex-start, center, nowrap);
+        overflow: hidden;
+        margin: auto;
+        max-width: 800px;
+        width: 100%;
+        cursor: grab;
+
+        .navbar-category-element {
+          @include border-radius(6px);
+          @include flex(row, center, center);
+          min-width: 60px;
+          height: 25px;
+          border: 2px solid $gray-e3;
+          margin: 20px 5px 3px 5px;
+          cursor: pointer;
+
+          &.active {
+            border-color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
