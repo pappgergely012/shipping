@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn run watch`
+Start the compiler server and watch changes for scss and compile it to css.
+
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
