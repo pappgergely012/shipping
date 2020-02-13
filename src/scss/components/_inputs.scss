@@ -1,0 +1,52 @@
+.input-row {
+  position: relative;
+
+  &.half {
+    width: 50%;
+  }
+
+  .basic-input {
+    @include border-radius(4px);
+    width: 100%;
+    padding: 15px 12px 12px 12px;
+    margin: 5px 10px;
+    border: 1px solid $gray-e3;
+
+    &:focus {
+      @include box-shadow(0, 0, 1px, 1px, $main-color);
+      border-color: $main-color;
+
+      & + label{
+        @extend .not-empty;
+        color: $main-color;
+      }
+    }
+  }
+
+  label {
+    @include position-absolute(50%, auto, auto, 22px);
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: $gray-9;
+    font-size: $font-sm;
+    transition: .3s;
+
+    &.not-empty {
+      top: 5px;
+      font-size: $font-xxs;
+      transform: translateY(0);
+      transition: .3s;
+    }
+  }
+}
+
+.input-error {
+  color: $red;
+  font-size: $font-xs;
+  margin: 0 12px 5px 22px;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+}

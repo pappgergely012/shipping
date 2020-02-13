@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ProfileData from '../../components/ProfileData/ProfileData';
-import Register from '../../components/Register/Register';
+import Auth from '../../components/Auth/Auth';
 
 class Profile extends Component {
   render(){
@@ -14,7 +14,7 @@ class Profile extends Component {
             ?
               <ProfileData />
             :
-              <Register />
+              <Auth />
           }
         </div>
       </div>

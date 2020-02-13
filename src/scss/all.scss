@@ -4,6 +4,8 @@
 
 //common
 @import './components/navbar';
+@import './components/inputs';
+@import './components/titles';
 
 //main
 @import './components/banner';
@@ -13,3 +15,4 @@
 //profile
 @import './components/register';
 @import './components/profile';
+@import './components/login';

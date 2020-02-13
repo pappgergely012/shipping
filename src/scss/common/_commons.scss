@@ -15,3 +15,8 @@ a {
   @include fix-full();
   background-color: $overlay-color;
 }
+
+input:focus {
+  outline-offset: 0;
+  outline-width: 0;
+}

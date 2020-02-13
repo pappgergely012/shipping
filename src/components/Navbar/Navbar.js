@@ -28,7 +28,7 @@ class Navbar extends React.Component{
             </Link>
           </div>
 
-          {pathname != '/profile'  ? <Categories /> : null}
+          {pathname !== '/profile'  ? <Categories /> : null}
         </div>
       </div>
     )

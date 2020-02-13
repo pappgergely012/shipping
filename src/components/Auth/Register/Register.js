@@ -1,4 +1,4 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 
 
 class Register extends Component {
@@ -8,7 +8,7 @@ class Register extends Component {
       <div className="register-outer">
         <div className="register-inner">
 
-          <div className="register-title">
+          <div className="title-center-xxl">
             Regisztráció
           </div>
 
