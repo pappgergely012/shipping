@@ -1,30 +1,33 @@
 import React, { Component } from 'react'; 
+import { withRouter } from "react-router-dom";
 
 import Login from './Login/Login';
 import Register from './Register/Register';
 
 class Auth extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      register: false
-    }
-  }
-
   render(){
+    const { pathname } = this.props.location;
+    let content = null;
+
+    switch(pathname){
+      case '/profile-register':
+          content = <Register />
+        break;
+      case '/profile':
+          content = <Login />
+        break;
+      default: 
+          content = <Login />
+        break;
+    }
+
 
     return (
       <>
-      {this.state.register
-        ?
-          <Register />
-        :
-          <Login />
-      }
+        {content}
       </>
     )
   }
 };
 
-export default Auth;	
+export default withRouter(Auth);	

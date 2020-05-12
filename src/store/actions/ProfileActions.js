@@ -1,14 +1,28 @@
-export const onSetProfile = (profileData) => {
+export const onSetLogin = (profileData) => {
   return (dispatch) => {
-    dispatch(setProfile(profileData))
+    dispatch(setLogin(profileData))
   }
 }
 
-const setProfile = (profile) => {
+export const onChangeProfile = (profileData) => {
+  return dispatch => {
+    dispatch(changeProfile(profileData))
+  }
+}
+
+const setLogin = (profile) => {
   return {
-    type: 'SET_PROFILE',
+    type: 'SET_LOGIN',
+    email: profile.email
+  } 
+}
+
+const changeProfile = profile => {
+  return {
+    type: 'CHANGE_PROFILE',
     name: profile.name,
     email: profile.email,
-    phone: profile.phone
-  } 
+    phone: profile.phone,
+    address: profile.address
+  }
 }

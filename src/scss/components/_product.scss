@@ -2,7 +2,7 @@
   @include flex(row, flex-start, stretch, wrap);
   width: 100%;
   max-width: 1000px;
-  margin: auto;
+  margin: 50px auto 0 auto;
 
   .product-element {
     width: 25%;

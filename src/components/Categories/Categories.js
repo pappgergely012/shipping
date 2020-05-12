@@ -5,9 +5,9 @@ const Categories = () => {
   const [ activeCatIndex, setActiveCatIndex ] = useState([]);
 
   const categoryClicked = (currentIndex) => {
-
     if(activeCatIndex.includes(currentIndex)){
       setActiveCatIndex(activeCatIndex.filter(item => item !== currentIndex));
+      
       return;
     } else {
       setActiveCatIndex([...activeCatIndex, currentIndex])

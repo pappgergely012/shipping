@@ -1,5 +1,6 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
+import Button from '../UI/Button/Button';
 
 class ProductModal extends Component {
   render(){
@@ -24,8 +25,14 @@ class ProductModal extends Component {
             </div>
 
             <div className="product-price">
-            {this.props.product.price}
+              {this.props.product.price}
             </div>
+
+            <Button
+              title="Kosárba"
+              classes="main-button--md main-button--center main-button--long  passive"
+              onClick={() => console.log('clicked')}
+            />
           </div>
         </div>
       </div>

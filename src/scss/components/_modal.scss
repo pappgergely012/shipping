@@ -1,0 +1,53 @@
+.modal {
+  @include flex(row, center, center);
+  @include fix-full;
+  visibility: hidden;
+
+  .overlay {
+    opacity: 0;
+    transition: .3s;
+  }
+
+  .modal-inner {
+    @include border-radius(6px);
+    background-color: $white;
+    transform: scale(0);
+    opacity: 0;
+    transition: .3s;
+  }
+
+  &.--message-modal{
+    .modal-inner {
+      @include flex(column, space-around, center);
+      width: 400px;
+      height: 180px;
+
+      .modal-title {
+        font-weight: bold;
+        color: $main-color;
+      }
+  
+      .modal-message {
+        font-size: $font-md;
+        color: $gray-3;
+      }
+    }
+  }
+
+  &.show {
+    visibility: visible; 
+    opacity: 1;
+    z-index: 4;
+
+    .overlay {
+      opacity: 1;
+      transition: .3s;
+    }
+    
+    .modal-inner {
+      transform: scale(1);
+      opacity: 1;
+      transition: .3s;
+    }
+  }
+}

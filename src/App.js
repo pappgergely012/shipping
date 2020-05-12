@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 import Navbar from './components/Navbar/Navbar';
@@ -20,12 +21,17 @@ class App extends Component {
           <Navbar />
 
           <Switch>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/">
-              <Main />
-            </Route>
+            <Route 
+              path="/profile*"
+              component={Profile} 
+            />
+
+            <Route 
+              path="/"
+              component={Main}
+            />
+
+            <Redirect from='*' to='/' />
           </Switch>
         </div>
       </Router>

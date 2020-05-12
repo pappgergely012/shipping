@@ -26,12 +26,12 @@ class Main extends Component {
           <Products 
             showProductModal={(modalStatus, product) => this.toggleModal(modalStatus, product)}
           />
-
-          <ProductModal 
-            closeModal={() => this.toggleModal()}
-            show={this.state.showModal}
-          />
         </div>
+
+        <ProductModal 
+          closeModal={() => this.toggleModal()}
+          show={this.state.showModal}
+        />
       </div>
     )
   }

@@ -1,8 +1,7 @@
 .banners-outer {
   @include flex(row, flex-start, stretch);
   width: 100%;
-  max-width: 1000px;
-  margin: 50px auto 12px auto;
+  margin: 0 auto 0 auto;
   overflow: hidden;
   position: relative;
 
@@ -10,7 +9,7 @@
     @include position-absolute(0, auto, auto, auto);
     @include no-select();
     height: 100%;
-    width: 50%;
+    width: 160px;
     font-size: $font-xxl * 6/3;
     font-weight: bold;
     z-index: 2;
@@ -19,27 +18,25 @@
     cursor: pointer;
 
     &.left-arrow {
-      @include flex(row, flex-start, center);
-      left: 10px;
+      @include flex(row, center, center);
+      left: 0;
     }
   
     &.right-arrow {
-      @include flex(row, flex-end, center);
-      right: 10px;
+      @include flex(row, center, center);
+      right: 0px;
     }
   }
 
   .banners-inner {
     @include flex(row, flex-start, stretch);
     width: 100%;
-    max-width: 1000px;
 
     .banner-element{ 
       @include flex(row, center, center);
-      @include border-radius(12px);
       @include no-select();
       background-color: $gray-e3;
-      height: 150px;
+      height: 300px;
       min-width: 100%;
     }
   }

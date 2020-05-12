@@ -7,10 +7,11 @@
 
   .basic-input {
     @include border-radius(4px);
-    width: 100%;
+    width: calc(100% - 24px - 20px - 2px);
     padding: 15px 12px 12px 12px;
-    margin: 5px 10px;
+    margin: 5px 10px 5px 10px;
     border: 1px solid $gray-e3;
+    font-size: $font-sm;
 
     &:focus {
       @include box-shadow(0, 0, 1px, 1px, $main-color);
@@ -43,7 +44,7 @@
 .input-error {
   color: $red;
   font-size: $font-xs;
-  margin: 0 12px 5px 22px;
+  margin: 0 12px 12px 22px;
   visibility: hidden;
 
   &.show {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'; 
 
 import ProfileData from '../../components/ProfileData/ProfileData';
 import Auth from '../../components/Auth/Auth';
 
 class Profile extends Component {
   render(){
-    console.log(this.props)
     return (
       <div>
         <div className="profile-content">
@@ -26,4 +26,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, null)(Profile);	
+export default withRouter(connect(mapStateToProps, null)(Profile));	

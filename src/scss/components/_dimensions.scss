@@ -1,0 +1,17 @@
+@for $i from 1 through 20 {
+  .mr-#{$i} {margin-right: 2px * $i !important};
+  .ml-#{$i} {margin-left: 2px * $i !important};
+  .mt-#{$i} {margin-top: 2px * $i !important};
+  .mb-#{$i} {margin-bottom: 2px * $i !important};
+  .mx-#{$i} {margin-right: 2px * $i !important; margin-left: 2px * $i !important};
+  .my-#{$i} {margin-top: 2px * $i !important; margin-bottom: 2px * $i !important};
+}
+
+@for $i from 1 through 20 {
+  .pr-#{$i} {padding-right: 2px * $i !important};
+  .pl-#{$i} {padding-left: 2px * $i !important};
+  .pt-#{$i} {padding-top: 2px * $i !important};
+  .pb-#{$i} {padding-bottom: 2px * $i !important};
+  .px-#{$i} {padding-right: 2px * $i !important; padding-left: 2px * $i !important};
+  .py-#{$i} {padding-top: 2px * $i !important; padding-bottom: 2px * $i !important};
+}

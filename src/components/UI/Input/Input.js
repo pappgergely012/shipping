@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import { InputValidation } from '../../../utility/InputValidation/InputValidation';
 
 
 class Input extends Component {
@@ -11,25 +12,40 @@ class Input extends Component {
     }
   }
 
+  componentDidMount(){
+    if(this.props.initValue){
+      this.input.value = this.props.initValue;
+
+      this.setState(prevState => ({
+        ...prevState,
+          empty: false
+      }))
+    }
+  }
+
   render(){
-    const containerStyle   = this.props.half ? 'input-row half' : 'input-row',
-          {errorMsg, empty} = this.state;
+    const containerStyle   = this.props.half ? 'input-row half' : 'input-row';
+    const { errorMsg, empty } = this.state;
+    const { type, onChangeText } = this.props;
 
     return (
-      <div>
+      <>
         <div className={containerStyle}>
           <input 
             onBlur={(evt) => this.blur(evt)}
             ref={ref => this.input = ref}
             className="basic-input"
+            onChange={(ev) => onChangeText(ev.target.value)}
+            type={type ? type : null}
           />
 
           <label className={empty ? '' : 'not-empty'}>{this.props.placeholder}</label>
         </div>
+        
         <div className={errorMsg.length === 0 ? "input-error" : "input-error show"}>
           {errorMsg}
         </div>
-      </div>
+      </>
     )
   }
 
@@ -39,20 +55,27 @@ class Input extends Component {
         ...prevState,
           empty: false
       }))
+    } else {
+      this.setState(prevState => ({
+        ...prevState,
+          empty: true
+      }))
     }
   }
 
   getValue = () => {
-    this.validateInput();
+    const hasError = this.validateInput();
 
-    return this.input.value;
+    return hasError ? false : this.input.value;
   }
 
   validateInput = () => {
-    if(this.input.value.length === 0){
+    const { hasError, errorMessage } = InputValidation(this.props.type, this.input.value, this.props.minLength, this.props.maxLength);
+
+    if(hasError === true){
       this.setState(prevState => ({
         ...prevState,
-          errorMsg: 'Töltsd ki a mezőt'
+          errorMsg: errorMessage
       }))
     } else {
       this.setState(prevState => ({
@@ -60,6 +83,8 @@ class Input extends Component {
           errorMsg: ''
       }))
     }
+
+    return hasError;
   }
 };
 

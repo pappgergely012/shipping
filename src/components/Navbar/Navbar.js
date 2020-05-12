@@ -20,15 +20,15 @@ class Navbar extends React.Component{
 
             <Link 
               to="/profile"
+              className="login-button"
             >
               <FontAwesomeIcon  
-                className="login-button" 
                 icon={faSignInAlt}
               />
             </Link>
           </div>
 
-          {pathname !== '/profile'  ? <Categories /> : null}
+          {/* {pathname.includes('profile') ? null :  <Categories />} */}
         </div>
       </div>
     )

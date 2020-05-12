@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class Banner extends Component {
   constructor(props){
@@ -11,9 +12,9 @@ class Banner extends Component {
       touchPosition: 0
     }
 
-    this.bannerOuter = React.createRef();
+    this.bannerOuter  = React.createRef();
     this.bannersInner = React.createRef();
-    this.bannerWidth = null;
+    this.bannerWidth  = null;
   }
 
   componentDidMount(){
@@ -39,9 +40,9 @@ class Banner extends Component {
 
     for(let i = 0; i < 5; i++){
       jsx.push(
-        <div key={`banner-${i}`} className="banner-element">
+        <Link key={`banner-${i}`} className="banner-element" to="/asd">
           {i}
-        </div>
+        </Link>
       )
     }
 
@@ -75,4 +76,4 @@ class Banner extends Component {
   }
 }
 
-export default Banner;
+export default withRouter(Banner);
