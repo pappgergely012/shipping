@@ -19,12 +19,19 @@
       @include border-radius(3px);
       @include flex(column, flex-start, flex-start);
       margin: 10px 5px;
-      height: 200px;
       transition: .3s;
       background-color: $white;
 
       .product-image {
+        width: 100%;
+        padding: 10px 0;
         flex: 1;
+
+        img {
+          max-height: 150px;
+          display: block;
+          margin: auto;
+        }
       }
 
       .product-datas {
@@ -42,6 +49,15 @@
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;  
+          overflow: hidden;
+        }
+
+        .product-list {
+          padding: 0;
+          padding-left: 18px;
+          font-size: $font-sm;
+          color: $gray-3;
+          max-height: 95px;
           overflow: hidden;
         }
 

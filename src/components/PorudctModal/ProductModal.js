@@ -1,47 +1,79 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
 import Button from '../UI/Button/Button';
+import { setCartItem } from '../../store/actions/CartActions';
+import { dataFormat } from '../../utility/common';
 
 class ProductModal extends Component {
   render(){
+    const { product, show, closeModal,  } = this.props;
+
     return (
-      <div className={this.props.show ? 'product-modal animate' : 'product-modal'}>
-        <div className="overlay" onClick={() => this.props.closeModal()}></div>
+      <div className={show ? 'product-modal animate' : 'product-modal'}>
+        <div className="overlay" onClick={() => closeModal()}></div>
 
         <div className="product-modal-inner">
-          <div className="modal-close" onClick={() => this.props.closeModal()}>X</div>
+          <div className="modal-close" onClick={() => closeModal()}>X</div>
 
           <div className="product-image">
-
+            <img src={product.image_url} alt={product.image_url}/>
           </div>
 
           <div className="product-datas-container">
             <div className="product-name">
-              {this.props.product.name}
+              {product.name}
             </div>
 
             <div className="product-description">
-              {this.props.product.description}
+              {product.description}
             </div>
 
+            <ul className="product-list">
+              {this.getParams(product)}
+            </ul>
+
             <div className="product-price">
-              {this.props.product.price}
+              {dataFormat('priceFormat', product.price)}
             </div>
 
             <Button
               title="Kosárba"
               classes="main-button--md main-button--center main-button--long  passive"
-              onClick={() => console.log('clicked')}
+              onClick={() => this.addToCart()}
             />
           </div>
         </div>
       </div>
     )
   }
+
+  addToCart = () => {
+    const { product, onSetCartItem, closeModal } = this.props;
+
+    onSetCartItem(product);
+    closeModal();
+  }
+
+  getParams = (product) => {
+    if(product.params.length > 0){
+      return product.params.map((param, index) => {
+        return (
+          <li key={`${param}-modal-${index}`} className="list-item">
+            {param}
+          </li>
+        )
+      })
+    }
+  }
+
 };
 
 const mapStateToProps = state => ({
   product: state.products.singleProductData
 });
 
-export default connect(mapStateToProps, null)(ProductModal);	
+const mapDispatchToProps = (dispatch) => ({
+  onSetCartItem: product => dispatch(setCartItem(product))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductModal);	

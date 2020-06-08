@@ -1,14 +1,13 @@
 import React from 'react'; 
 
-import Categories from '../Categories/Categories';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link, withRouter } from 'react-router-dom';
-
 
 class Navbar extends React.Component{
   render(){
-    const { pathname } = this.props.location;
+    const { profile } = this.props;
 
     return (
       <div className="navbar">
@@ -23,16 +22,18 @@ class Navbar extends React.Component{
               className="login-button"
             >
               <FontAwesomeIcon  
-                icon={faSignInAlt}
+                icon={profile.loggedIn ? faUserAlt : faSignInAlt}
               />
             </Link>
           </div>
-
-          {/* {pathname.includes('profile') ? null :  <Categories />} */}
         </div>
       </div>
     )
   }
 }
 
-export default withRouter(Navbar);	
+const mapStateToProps = state => ({
+  profile: state.profile
+});
+
+export default withRouter(connect(mapStateToProps, null)(Navbar));	

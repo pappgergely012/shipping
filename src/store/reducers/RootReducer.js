@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import ProductReducer from './ProductReducer';
 import ProfileReducer from './ProfileReducer';
+import CartReducer from './CartReducer';
 
 const rootReducer = combineReducers({
   products: ProductReducer,
-  profile: ProfileReducer
+  profile: ProfileReducer,
+  cart: CartReducer
 });
 
 let composeEnhancers = compose;

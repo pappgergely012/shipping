@@ -7,8 +7,6 @@ export const onSetProduct = (product) => {
 const setProduct = (product) => {
   return {
     type: 'SET_PRODUCT_TO_MODAL',
-    name: product.name,
-    description: product.description,
-    price: product.price
+    product: product
   }
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,,500,600,700&display=swap&subset=latin-ext');
+@import './scss/common/variables.scss';
+@import './scss/common/mixins.scss';
 
 body {
   font-family: 'Open Sans', sans-serif;

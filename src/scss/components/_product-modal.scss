@@ -13,17 +13,23 @@
     @include flex(column, flex-start, flex-start, nowrap);
     background-color: $white;
     width: 60%;
-    height: 70%;
     transform: scale(0);
     transition: .3s;
 
     .product-image{
       width: 100%;
-      flex: 1;
+      padding: 60px 0 20px 0;
+
+      img {
+        max-height: 200px;
+        display: block;
+        margin: auto;
+      }
     }
 
     .product-datas-container {
       padding: 10px 20px;
+      width: calc(100% - 40px);
 
       .product-name{
         color: $main-color;
@@ -34,6 +40,13 @@
       .product-description{
         margin: 20px 0;
         font-size: $font-xl;
+      }
+
+      .product-list {
+        padding: 0;
+        padding-left: 18px;
+        font-size: $font-lg;
+        color: $gray-3;
       }
 
       .product-price {

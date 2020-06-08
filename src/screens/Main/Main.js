@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Banner from '../../components/Banner/Banner';
-import Products from '../../components/Products/Products';
+import Products from '../../components/Products/Products.jsx';
 import ProductModal from '../../components/PorudctModal/ProductModal';
 
 import { onSetProduct } from '../../store/actions/ProductActions';
